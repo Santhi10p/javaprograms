@@ -1,17 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<projectDescription>
-	<name>project1</name>
-	<comment></comment>
-	<projects>
-	</projects>
-	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-	</buildSpec>
-	<natures>
-		<nature>org.eclipse.jdt.core.javanature</nature>
-	</natures>
-</projectDescription>
+package java2;
+import java.util.Scanner;
+public class encapsulation {
+	static Scanner sc=new Scanner(System.in);
+	int num;
+	void getdata()
+	{
+		System.out.println("Enter the number : ");
+		int num =sc.nextInt();
+	}
+	void printdata()
+	{
+		if((num%2)==0)
+		{
+			System.out.println("Even number");
+		}
+		else
+		{
+			System.out.println("Odd number");
+		}
+	}
+	public static void main(String[] args)
+	{
+		encapsulation obj=new encapsulation();
+		obj.getdata();
+		obj.printdata();
+	}
+}
