@@ -21,7 +21,6 @@ public class Large {
 			large=n3;
 		}
 		System.out.println("The largest of "+n1+", " +n2+" and " +n3+" is "+large);
-		int largerst= (n1>=n2)?((n1>=n3)?n1
 	}
 
 }
