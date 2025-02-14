@@ -1,35 +1,29 @@
-package day9;
-import java.util.Scanner;
-class Withdrawamount extends Exception{
-	public Withdrawamount(String s) {
-		super(s);
+package Feb14;
+class MyThreadclass implements Runnable{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		System.out.println("Run method"+i+"	 "+Thread.currentThread());
+		try
+			{
+				Thread.sleep(5000);
+			}
+			catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+		//System.out.println("run method");
 	}
 }
-
-
-class Withdraw{
-	
-	public void Bank(int balance,int amount) throws Withdrawamount {
-		
-		if(amount>balance) {
-			throw new Withdrawamount("insufficiant balance");
-		}else {
-			balance=balance-amount;
-			System.out.println("amont withdrawn");
-		}
-		}
-	}
-
 public class Task5 {
 
-
-	public static void main(String[] args) throws Withdrawamount {
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter amount to withdraw");
-		int amount=sc.nextInt();
-		Withdraw vobj=new Withdraw();
-		vobj.Bank(20000,amount);
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		MyThreadclass tobj=new MyThreadclass();
+		Thread obj1=new Thread(tobj);
+		Thread obj2=new Thread(tobj);
+		obj1.start();
+		//obj1.join();
+		obj2.start();
 	}
-
 
 }

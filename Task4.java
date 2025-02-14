@@ -1,31 +1,36 @@
-package day9;
+package Feb14;
 
-class AgeException extends Exception{
-	public AgeException(String s) {
-		super(s);
-	}
-}
-
-
-class VoteAge{
-	
-	public void checkAge(int age)throws AgeException  {
-		System.out.println("Before ttry");
-		if(age<18) {
-			throw new AgeException("Not Eligible to vote");
-		}else {
-			System.out.println("Eligible to vote");
+class MyClass extends Thread{
+	@Override
+	public void run() {
+		for(int i=1;i<=5;i++)
+		System.out.println("Run method "+i +"  "+Thread.currentThread());
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
 	}
 }
+
+
 public class Task4 {
 
 
-	public static void main(String[] args) throws AgeException  {
-		VoteAge vobj=new VoteAge();
-		vobj.checkAge(16);
+	public static void main(String[] args) throws InterruptedException {
+		System.out.println(Thread.currentThread());
+		
+		MyClass obj=new MyClass();
+		MyClass obj1=new MyClass();
+		obj.setName("first");
+		obj1.setName("second");
+		obj.start();
+		obj.join();
+		obj1.start();
+		
+		
 	}
-
-
 }
+
+
