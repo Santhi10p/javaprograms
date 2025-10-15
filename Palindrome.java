@@ -1,31 +1,21 @@
-package Feb14;
-
-import java.util.Scanner;
+package pro;
 
 public class Palindrome {
 
 	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the number : ");
-		int n=sc.nextInt();
-		int rev=0;
-		int num=n,last;
-		while(n>0)
-		{
-			last=n%10;
-			rev=rev*10+last;
-			n=n/10;
+		String name="madam";
+		int n=name.length();
+		boolean palin=true;
+		for(int i=0;i<n/2;i++) {
+			if(name.charAt(i)!=name.charAt(n-i-1)) {
+				palin=false;
+				break;
+			}
 		}
-		System.out.println(" PROGRAM TO CHECK THE NUMBER IS A PALINDROME OR NOT \n");
-		if(num==rev)
-		{
-			System.out.println(num+" is a palindrome");
+		if(palin) {
+			System.out.println("palindrome");
 		}
 		else
-		{
-			System.out.println(num+" is not a palindrome");
-		}
-
+			System.out.println("Not palindrome");
 	}
-
 }
